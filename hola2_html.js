@@ -9,7 +9,8 @@ http.createServer(function(req,res){  /*de esta forma se va a tener que leer el 
 										parte, si se modifica el index.html no se tendra
 										que reiniciar el servidor */
 	fs.readFile("./index.html",function(err,html){  
-		res.write(html);
+		res.writeHead(200,{"content-Type":"text/html"})/*statusCode*/
+		res.write(html); /*aqui manda las respuestas al navegador*/
 		res.end();
 	});
 
