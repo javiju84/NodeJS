@@ -13,11 +13,15 @@ http.createServer(function(req,res){  /*de esta forma se va a tener que leer el 
 		var nombre = "Javiju";
 		// variable ['nombre']
 		for (var i = variables.length - 1; i >= 0; i--){
+			//Lo ejecutamos como código de javaScript
+			//Para obtener el valor de dicha variable
 			var value =  eval(variables[i]);
 
+			//Reemplazar el contenido con llaves {x} por su valor  correspondiente
 			html_string = html_string.replace("{"+variables[i]+"}",value);
 		};
 
+		//Mandamos el contenido
 		res.writeHead(200,{"content-Type":"text/html"})/*statusCode*/
 		res.write(html_string); 
 		res.end();
